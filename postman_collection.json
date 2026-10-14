@@ -1,0 +1,672 @@
+{
+  "info": {
+    "name": "HR & Payroll API",
+    "description": "API collection for HR & Payroll Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000/api",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Departments",
+      "item": [
+        {
+          "name": "Get All Departments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/departments",
+              "host": ["{{baseUrl}}"],
+              "path": ["departments"]
+            }
+          }
+        },
+        {
+          "name": "Create Department",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Engineering\",\n  \"description\": \"Software development team\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/departments",
+              "host": ["{{baseUrl}}"],
+              "path": ["departments"]
+            }
+          }
+        },
+        {
+          "name": "Get Department by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/departments/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["departments", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Department",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Engineering\",\n  \"description\": \"Software development and engineering team\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/departments/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["departments", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Department",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/departments/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["departments", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Employees",
+      "item": [
+        {
+          "name": "Get All Employees",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees"]
+            }
+          }
+        },
+        {
+          "name": "Create Employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee_number\": \"EMP001\",\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"phone\": \"+254700000000\",\n  \"department_id\": 1,\n  \"position\": \"Software Engineer\",\n  \"salary\": 150000,\n  \"hire_date\": \"2024-01-15\",\n  \"status\": \"active\",\n  \"tax_rule_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees"]
+            }
+          }
+        },
+        {
+          "name": "Get Employee by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Employee",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Smith\",\n  \"salary\": 160000\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Employee",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/employees/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Attendance",
+      "item": [
+        {
+          "name": "Get All Attendances",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/attendances",
+              "host": ["{{baseUrl}}"],
+              "path": ["attendances"]
+            }
+          }
+        },
+        {
+          "name": "Get Attendances (Filtered)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/attendances?employee_id=1&date_from=2024-01-01&date_to=2024-12-31",
+              "host": ["{{baseUrl}}"],
+              "path": ["attendances"],
+              "query": [
+                {
+                  "key": "employee_id",
+                  "value": "1"
+                },
+                {
+                  "key": "date_from",
+                  "value": "2024-01-01"
+                },
+                {
+                  "key": "date_to",
+                  "value": "2024-12-31"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Attendance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee_id\": 1,\n  \"date\": \"2024-01-15\",\n  \"check_in\": \"08:00\",\n  \"check_out\": \"17:00\",\n  \"status\": \"present\",\n  \"notes\": \"Regular day\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/attendances",
+              "host": ["{{baseUrl}}"],
+              "path": ["attendances"]
+            }
+          }
+        },
+        {
+          "name": "Clock In",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/attendances/clock-in",
+              "host": ["{{baseUrl}}"],
+              "path": ["attendances", "clock-in"]
+            }
+          }
+        },
+        {
+          "name": "Clock Out",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee_id\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/attendances/clock-out",
+              "host": ["{{baseUrl}}"],
+              "path": ["attendances", "clock-out"]
+            }
+          }
+        },
+        {
+          "name": "Update Attendance",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"check_out\": \"18:00\",\n  \"status\": \"present\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/attendances/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["attendances", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Attendance",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/attendances/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["attendances", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Leaves",
+      "item": [
+        {
+          "name": "Get All Leaves",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/leaves",
+              "host": ["{{baseUrl}}"],
+              "path": ["leaves"]
+            }
+          }
+        },
+        {
+          "name": "Get Leaves (Filtered)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/leaves?employee_id=1&status=pending",
+              "host": ["{{baseUrl}}"],
+              "path": ["leaves"],
+              "query": [
+                {
+                  "key": "employee_id",
+                  "value": "1"
+                },
+                {
+                  "key": "status",
+                  "value": "pending"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Leave Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee_id\": 1,\n  \"type\": \"annual\",\n  \"start_date\": \"2024-02-01\",\n  \"end_date\": \"2024-02-05\",\n  \"reason\": \"Family vacation\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/leaves",
+              "host": ["{{baseUrl}}"],
+              "path": ["leaves"]
+            }
+          }
+        },
+        {
+          "name": "Approve Leave",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"approved_by\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/leaves/:id/approve",
+              "host": ["{{baseUrl}}"],
+              "path": ["leaves", ":id", "approve"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Reject Leave",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"approved_by\": 1,\n  \"rejection_reason\": \"Insufficient leave balance\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/leaves/:id/reject",
+              "host": ["{{baseUrl}}"],
+              "path": ["leaves", ":id", "reject"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Leave",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"approved\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/leaves/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["leaves", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Leave",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/leaves/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["leaves", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payroll",
+      "item": [
+        {
+          "name": "Get All Payrolls",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/payrolls",
+              "host": ["{{baseUrl}}"],
+              "path": ["payrolls"]
+            }
+          }
+        },
+        {
+          "name": "Get Payrolls (Filtered)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/payrolls?period=2024-01&status=pending",
+              "host": ["{{baseUrl}}"],
+              "path": ["payrolls"],
+              "query": [
+                {
+                  "key": "period",
+                  "value": "2024-01"
+                },
+                {
+                  "key": "status",
+                  "value": "pending"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Payroll",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee_id\": 1,\n  \"period\": \"2024-01\",\n  \"overtime_hours\": 10,\n  \"overtime_rate\": 150,\n  \"allowances\": 5000\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/payrolls",
+              "host": ["{{baseUrl}}"],
+              "path": ["payrolls"]
+            }
+          }
+        },
+        {
+          "name": "Generate Period Payroll",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"period\": \"2024-01\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/payrolls/generate-period",
+              "host": ["{{baseUrl}}"],
+              "path": ["payrolls", "generate-period"]
+            }
+          }
+        },
+        {
+          "name": "Get Payroll by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/payrolls/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["payrolls", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Payroll",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"processed\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/payrolls/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["payrolls", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Payroll",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/payrolls/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["payrolls", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
